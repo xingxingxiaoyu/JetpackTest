@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import androidx.lifecycle.ViewModelProvider.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ import com.example.jetpacktest.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -60,12 +62,19 @@ class MainActivity : AppCompatActivity() {
         button_refresh.setOnClickListener {
             userViewModel.refreshUser()
         }
-        getLifecycle().addObserver(object : LifecycleEventObserver {
-            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+//        getLifecycle().addObserver(object : LifecycleEventObserver {
+//            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+//                Log.d(TAG, "onStateChanged: " + event)
+//                Exception().printStackTrace()
+//
+//            }
+//
+//        })
 
-            }
+//        (getLifecycle() as LifecycleRegistry).handleLifecycleEvent(Lifecycle.Event.ON_ANY)
 
-        })
+
+        supportFragmentManager.beginTransaction().add(MyFragment(), "test").commit()
 
     }
 
@@ -111,5 +120,6 @@ class MainActivity : AppCompatActivity() {
         super.onConfigurationChanged(newConfig)
         Log.d(TAG, "onConfigurationChanged: ")
     }
+
 
 }
