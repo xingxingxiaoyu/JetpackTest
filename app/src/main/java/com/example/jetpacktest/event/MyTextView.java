@@ -6,12 +6,15 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import hugo.weaving.DebugLog;
+
 /**
  * 描述信息：
  *
  * @author xuyu
  * @date 2020/3/6
  */
+@DebugLog
 public class MyTextView extends androidx.appcompat.widget.AppCompatTextView {
     public static final String TAG = "MyTextView";
 

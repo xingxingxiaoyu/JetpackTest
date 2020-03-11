@@ -20,6 +20,9 @@ import com.example.jetpacktest.R;
 
 import java.util.ArrayList;
 
+import hugo.weaving.DebugLog;
+
+@DebugLog
 public class Main2Activity extends AppCompatActivity {
     public static final String TAG = "Main2Activity";
 

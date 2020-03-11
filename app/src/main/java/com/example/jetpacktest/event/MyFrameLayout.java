@@ -8,12 +8,15 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import hugo.weaving.DebugLog;
+
 /**
  * 描述信息：
  *
  * @author xuyu
  * @date 2020/3/6
  */
+@DebugLog
 public class MyFrameLayout extends android.widget.FrameLayout {
     public static final String TAG = "MyFrameLayout";
 
