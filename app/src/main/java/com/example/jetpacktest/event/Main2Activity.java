@@ -25,30 +25,40 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LayoutInflaterCompat.setFactory(LayoutInflater.from(this), new LayoutInflaterFactory() {
-            @Override
-            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-                View view = null;
-                if (name.equals("FrameLayout")) {
-                    view = new MyFrameLayout(context, attrs);
-                } else if (name.equals("TextView")) {
-                    view = new MyTextView(context, attrs);
-
-                }
-                if (view == null) {
-                    AppCompatDelegate delegate = getDelegate();
-                    view = delegate.createView(parent, name, context, attrs);
-                }
-                return view;
-            }
-        });
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.d(TAG, "onTouchEvent: ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.d(TAG, "onTouchEvent: ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.d(TAG, "onTouchEvent: ACTION_UP");
+                break;
+        }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.d(TAG, "dispatchTouchEvent: ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.d(TAG, "dispatchTouchEvent: ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.d(TAG, "dispatchTouchEvent: ACTION_UP");
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
 
