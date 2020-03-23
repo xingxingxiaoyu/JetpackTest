@@ -18,9 +18,13 @@ import android.view.View;
 
 import com.example.jetpacktest.R;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import hugo.weaving.DebugLog;
+import kotlinx.coroutines.GlobalScope;
+import retrofit2.Retrofit;
 
 @DebugLog
 public class Main2Activity extends AppCompatActivity {
@@ -30,7 +34,16 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Exception().printStackTrace();
+            }
+        });
+
     }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -45,6 +58,7 @@ public class Main2Activity extends AppCompatActivity {
                 Log.d(TAG, "onTouchEvent: ACTION_UP");
                 break;
         }
+        new Exception().printStackTrace();
         return super.onTouchEvent(event);
     }
 
@@ -61,8 +75,13 @@ public class Main2Activity extends AppCompatActivity {
                 Log.d(TAG, "dispatchTouchEvent: ACTION_UP");
                 break;
         }
+        new Exception().printStackTrace();
         return super.dispatchTouchEvent(ev);
     }
 
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        new Exception().printStackTrace();
+    }
 }

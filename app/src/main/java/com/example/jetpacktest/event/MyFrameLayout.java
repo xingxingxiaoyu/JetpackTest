@@ -42,7 +42,7 @@ public class MyFrameLayout extends android.widget.FrameLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "onTouchEvent: ACTION_DOWN");
                 break;
@@ -53,12 +53,13 @@ public class MyFrameLayout extends android.widget.FrameLayout {
                 Log.d(TAG, "onTouchEvent: ACTION_UP");
                 break;
         }
+        new Exception().printStackTrace();
         return super.onTouchEvent(event);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "onInterceptTouchEvent: ACTION_DOWN");
                 break;
@@ -69,12 +70,13 @@ public class MyFrameLayout extends android.widget.FrameLayout {
                 Log.d(TAG, "onInterceptTouchEvent: ACTION_UP");
                 break;
         }
+        new Exception().printStackTrace();
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "dispatchTouchEvent: ACTION_DOWN");
                 break;
@@ -85,6 +87,7 @@ public class MyFrameLayout extends android.widget.FrameLayout {
                 Log.d(TAG, "dispatchTouchEvent: ACTION_UP");
                 break;
         }
+        new Exception().printStackTrace();
         return super.dispatchTouchEvent(ev);
     }
 }
