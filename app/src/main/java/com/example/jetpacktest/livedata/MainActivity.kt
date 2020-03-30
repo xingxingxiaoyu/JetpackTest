@@ -81,7 +81,8 @@ class MainActivity : AppCompatActivity() {
 
         Thread.sleep(1000)
 
-        runBlocking {     // 但是这个表达式阻塞了主线程
+        runBlocking {
+            // 但是这个表达式阻塞了主线程
             delay(2000L)  // ……我们延迟 2 秒来保证 JVM 的存活
         }
     }
@@ -90,6 +91,9 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume: " + this)
+
+        supportFragmentManager.beginTransaction().add(MyFragment(), "").commit()
+
     }
 
     class TestAdapter(val users: List<User?>, var context: Context) :
