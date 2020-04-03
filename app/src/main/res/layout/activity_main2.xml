@@ -9,6 +9,7 @@
     tools:context=".event.Main2Activity">
 
     <com.example.jetpacktest.event.MyTextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试的" />

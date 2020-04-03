@@ -10,13 +10,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.jetpacktest.R;
+import com.konka.pushverifier.NetUtil;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -39,6 +42,16 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new Exception().printStackTrace();
+            }
+        });
+        ((TextView) findViewById(R.id.tv)).setText("NetUtil.INSTANCE.isNetworkAvailable(this) " + NetUtil.INSTANCE.isNetworkAvailable(this) + "\r\n" +
+                "NetUtil.INSTANCE.getNetStatus(this) " + NetUtil.INSTANCE.getNetStatus(this));
+
+        final Handler handler=new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed(this,1000);
             }
         });
 

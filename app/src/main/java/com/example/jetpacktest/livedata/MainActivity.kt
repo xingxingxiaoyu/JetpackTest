@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import androidx.lifecycle.ViewModelProvider.*
@@ -32,46 +33,46 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        Log.d(TAG, "onCreate: " + this)
-//
-//        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "database-name")
-//            .build()
-//        var random = Random()
-//
-//        var users = ArrayList<User?>()
-//        val testAdapter = TestAdapter(users, this)
-//        recycler_view.adapter = testAdapter
-//        recycler_view.layoutManager = LinearLayoutManager(this)
-//        button_add.setOnClickListener {
-//            GlobalScope.launch {
-//                db.userDao().insertAll(User("lihua", random.nextInt().toString()))
-//            }
-//        }
-//
-//        val userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//        AndroidViewModelFactory.getInstance(application).create(UserViewModel::class.java)
-//        userViewModel.getUsers()
-//            ?.observe(this@MainActivity, androidx.lifecycle.Observer<List<User?>> { userList ->
-//                users.clear()
-//                users.addAll(userList)
-//                Log.d(TAG, "onCreate: " + users)
-//                testAdapter.notifyDataSetChanged()
-//            })
-//
-//        Log.e(TAG, "onCreate: " + userViewModel.javaClass.name)
-//        button_refresh.setOnClickListener {
-//            userViewModel.refreshUser()
-//        }
-//        getLifecycle().addObserver(object : LifecycleEventObserver {
-//            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-//                Log.d(TAG, "onStateChanged: " + event)
-//                Exception().printStackTrace()
-//
-//            }
-//
-//        })
+        Log.d(TAG, "onCreate: " + this)
 
-//        (getLifecycle() as LifecycleRegistry).handleLifecycleEvent(Lifecycle.Event.ON_ANY)
+        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "database-name")
+            .build()
+        var random = Random()
+
+        var users = ArrayList<User?>()
+        val testAdapter = TestAdapter(users, this)
+        recycler_view.adapter = testAdapter
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        button_add.setOnClickListener {
+            GlobalScope.launch {
+                db.userDao().insertAll(User("lihua", random.nextInt().toString()))
+            }
+        }
+
+        val userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        AndroidViewModelFactory.getInstance(application).create(UserViewModel::class.java)
+        userViewModel.getUsers()
+            ?.observe(this@MainActivity, androidx.lifecycle.Observer<List<User?>> { userList ->
+                users.clear()
+                users.addAll(userList)
+                Log.d(TAG, "onCreate: " + users)
+                testAdapter.notifyDataSetChanged()
+            })
+
+        Log.e(TAG, "onCreate: " + userViewModel.javaClass.name)
+        button_refresh.setOnClickListener {
+            userViewModel.refreshUser()
+        }
+        getLifecycle().addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                Log.d(TAG, "onStateChanged: " + event)
+                Exception().printStackTrace()
+
+            }
+
+        })
+
+        (getLifecycle() as LifecycleRegistry).handleLifecycleEvent(Lifecycle.Event.ON_ANY)
         GlobalScope.launch {
             // 在后台启动一个新的协程并继续
             delay(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒）
@@ -85,6 +86,8 @@ class MainActivity : AppCompatActivity() {
             // 但是这个表达式阻塞了主线程
             delay(2000L)  // ……我们延迟 2 秒来保证 JVM 的存活
         }
+
+        (button_refresh.layoutParams as ConstraintLayout.LayoutParams).bottomToBottom = 1;//parent 对应几不知道
     }
 
 
