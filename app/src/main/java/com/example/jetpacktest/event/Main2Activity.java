@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.jetpacktest.R;
-import com.konka.pushverifier.NetUtil;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -44,8 +43,6 @@ public class Main2Activity extends AppCompatActivity {
                 new Exception().printStackTrace();
             }
         });
-        ((TextView) findViewById(R.id.tv)).setText("NetUtil.INSTANCE.isNetworkAvailable(this) " + NetUtil.INSTANCE.isNetworkAvailable(this) + "\r\n" +
-                "NetUtil.INSTANCE.getNetStatus(this) " + NetUtil.INSTANCE.getNetStatus(this));
 
         final Handler handler=new Handler();
         handler.post(new Runnable() {
