@@ -12,6 +12,26 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        var person = Person("xujiafeng")
+
+        var applyResult = person.apply { name = "xujiafeng1" }
+
+        var alsoResult = person.also { it.name = "xujiafeng2" }
+
+        var letResult = person.let { it.name = "xujiafeng3" }
+
+        var withResult = with(person) { name = "xujiafeng4" }
+
+        var runResult = person.run { name = "xujiafeng5" }
+
+        println(applyResult.javaClass.name)
+        println(alsoResult.javaClass.name)
+        println(letResult.javaClass.name)
+        println(withResult.javaClass.name)
+        println(runResult.javaClass.name)
+
+
     }
+
+    class Person(var name: String)
 }

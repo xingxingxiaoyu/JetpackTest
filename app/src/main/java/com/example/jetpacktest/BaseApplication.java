@@ -4,6 +4,10 @@ import android.app.Application;
 import androidx.room.Room;
 
 import com.example.jetpacktest.livedata.AppDatabase;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
+
+import dagger.hilt.android.HiltAndroidApp;
 
 /**
  * 描述信息：
@@ -11,6 +15,7 @@ import com.example.jetpacktest.livedata.AppDatabase;
  * @author xuyu
  * @date 2020/2/27
  */
+@HiltAndroidApp
 public class BaseApplication extends Application {
     @Override
     public void onCreate() {
@@ -19,6 +24,7 @@ public class BaseApplication extends Application {
                 this,
                 AppDatabase.class, "database-name"
         ).build();
+        RefWatcher watcher = LeakCanary.install(this);
     }
 
     private static AppDatabase database;
