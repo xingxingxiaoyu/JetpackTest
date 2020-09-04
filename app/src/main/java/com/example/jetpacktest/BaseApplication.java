@@ -15,7 +15,7 @@ import dagger.hilt.android.HiltAndroidApp;
  * @author xuyu
  * @date 2020/2/27
  */
-@HiltAndroidApp
+//@HiltAndroidApp
 public class BaseApplication extends Application {
     @Override
     public void onCreate() {

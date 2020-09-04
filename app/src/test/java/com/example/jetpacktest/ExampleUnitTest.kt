@@ -14,15 +14,17 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         var person = Person("xujiafeng")
 
-        var applyResult = person.apply { name = "xujiafeng1" }
+        var applyResult = person.apply {
+            name = "xujiafeng1"
+        }
 
         var alsoResult = person.also { it.name = "xujiafeng2" }
 
-        var letResult = person.let { it.name = "xujiafeng3" }
+        var letResult = person.let { return@let it.name }
 
-        var withResult = with(person) { name = "xujiafeng4" }
+        var withResult = with(person) { return@with name }
 
-        var runResult = person.run { name = "xujiafeng5" }
+        var runResult = person.run { return@run name }
 
         println(applyResult.javaClass.name)
         println(alsoResult.javaClass.name)
