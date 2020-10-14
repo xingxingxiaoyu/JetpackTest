@@ -24,6 +24,7 @@ public class BaseApplication extends Application {
                 this,
                 AppDatabase.class, "database-name"
         ).build();
+
         RefWatcher watcher = LeakCanary.install(this);
     }
 
