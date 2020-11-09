@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9F7272"
-    tools:context=".event.Main2Activity">
+    tools:context=".event.EventActivity">
 
     <com.example.jetpacktest.event.MyTextView
         android:id="@+id/tv"

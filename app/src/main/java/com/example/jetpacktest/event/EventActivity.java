@@ -1,54 +1,30 @@
 package com.example.jetpacktest.event;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.view.LayoutInflaterCompat;
-import androidx.core.view.LayoutInflaterFactory;
-import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.jetpacktest.R;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-
 import hugo.weaving.DebugLog;
-import kotlinx.coroutines.GlobalScope;
-import retrofit2.Retrofit;
 
 @DebugLog
-public class Main2Activity extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity {
     public static final String TAG = "Main2Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_event);
 
         findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new Exception().printStackTrace();
-            }
-        });
-
-        final Handler handler=new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                handler.postDelayed(this,1000);
             }
         });
 
