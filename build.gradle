@@ -29,12 +29,10 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-subprojects {
-    Project childProject ->
-
-        childProject.plugins.apply('com.android.application')
-        childProject.plugins.apply('com.jakewharton.hugo')
-        childProject.plugins.apply('kotlin-android')
-        childProject.plugins.apply('kotlin-android-extensions')
-        childProject.plugins.apply('kotlin-kapt')
-}
+//subprojects {
+//    Project childProject ->
+//        childProject.plugins.apply('com.jakewharton.hugo')
+//        childProject.plugins.apply('kotlin-android')
+//        childProject.plugins.apply('kotlin-android-extensions')
+//        childProject.plugins.apply('kotlin-kapt')
+//}

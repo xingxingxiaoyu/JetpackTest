@@ -2,11 +2,13 @@ package com.example.jetpacktest.event;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.jetpacktest.R;
 
@@ -21,12 +23,36 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-        findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+//        findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                new Exception().printStackTrace();
+//            }
+//        });
+
+        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: tv1");
                 new Exception().printStackTrace();
             }
         });
+
+        findViewById(R.id.tv2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: tv2");
+                new Exception().printStackTrace();
+            }
+        });
+
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < 100; i++) {
+            content.append(i + "\r\n");
+        }
+        ((TextView) findViewById(R.id.tv_content)).setText(content.toString());
+
+//        getSharedPreferences()
 
     }
 

@@ -14,29 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".handler.HandlerActivity">
+        <activity android:name=".SingleTask.EmptyActivity"/>
+        <activity
+            android:name=".SingleTask.SingleTaskActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".animator.AnimatorActivity">
+        <activity android:name=".error_handler.ErrorTestActivity">
 
         </activity>
-        <activity android:name=".hilt.HiltActivity">
-
-        </activity>
+        <activity android:name=".handler.HandlerActivity" />
+        <activity android:name=".animator.AnimatorActivity" />
+        <activity android:name=".hilt.HiltActivity" />
         <activity android:name=".event.EventActivity" />
-        <activity android:name=".livedata.MainActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".livedata.MainActivity" />
     </application>
 
 </manifest>

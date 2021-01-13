@@ -14,4 +14,29 @@
         android:layout_height="wrap_content"
         android:text="测试的" />
 
+    <com.example.jetpacktest.event.MyTextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="测试的" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:background="@drawable/a"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </com.example.jetpacktest.event.MyFrameLayout>
